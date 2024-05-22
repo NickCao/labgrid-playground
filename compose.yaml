@@ -1,0 +1,6 @@
+name: labgrid-playground
+services:
+  crossbar:
+    build:
+      context: ./crossbar
+    command: bash -c "crossbar init && crossbar start"
