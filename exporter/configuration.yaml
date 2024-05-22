@@ -1,0 +1,6 @@
+example-group:
+  location: example-location
+	NetworkService:
+    address: example.com
+    username: root
+

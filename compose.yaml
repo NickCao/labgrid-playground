@@ -15,3 +15,14 @@ services:
     depends_on:
       crossbar:
         condition: service_healthy
+  exporter:
+    build:
+      context: ./labgrid
+    command: labgrid-exporter /exporter/configuration.yaml
+    environment:
+      LG_CROSSBAR: ws://crossbar:8080/ws
+    volumes:
+      - ./exporter:/exporter
+    depends_on:
+      crossbar:
+        condition: service_healthy
