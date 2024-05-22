@@ -3,7 +3,7 @@ services:
   crossbar:
     build:
       context: ./crossbar
-    command: bash -c "crossbar init && crossbar start"
+    command: "bash -c \"crossbar init && jq '.workers[0].realms[0].roles[0].permissions[0].disclose = {caller: true, publisher: true}' .crossbar/config.json | sponge .crossbar/config.json && crossbar start\""
     healthcheck:
       test: curl --fail http://127.0.0.1:8080
       interval: 10s
