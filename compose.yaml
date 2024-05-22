@@ -4,3 +4,14 @@ services:
     build:
       context: ./crossbar
     command: bash -c "crossbar init && crossbar start"
+    healthcheck:
+      test: curl --fail http://127.0.0.1:8080
+  coordinator:
+    build:
+      context: ./labgrid
+    command: python3 -m labgrid.remote.coordinator
+    environment:
+      WS: ws://crossbar:8080/ws
+    depends_on:
+      crossbar:
+        condition: service_healthy
