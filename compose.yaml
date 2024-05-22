@@ -27,3 +27,13 @@ services:
     depends_on:
       crossbar:
         condition: service_healthy
+  client:
+    build:
+      context: ./labgrid
+    command: bash
+    tty: true
+    environment:
+      LG_CROSSBAR: ws://crossbar:8080/ws
+    depends_on:
+      crossbar:
+        condition: service_healthy
