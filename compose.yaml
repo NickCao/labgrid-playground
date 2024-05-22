@@ -6,6 +6,7 @@ services:
     command: bash -c "crossbar init && crossbar start"
     healthcheck:
       test: curl --fail http://127.0.0.1:8080
+      interval: 10s
   coordinator:
     build:
       context: ./labgrid
