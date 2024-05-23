@@ -1,5 +1,14 @@
 ## Labgrid playground
 
+### Client Setup
+```shell
+labgrid-client -p test create
+labgrid-client -p test add-match "*/example-group/*"
+labgrid-client -p test lock
+labgrid-client -p test con
+labgrid-client -p test unlock
+```
+
 ### Client to Exporter communication
 > Labgrid requires your user to be able to connect from the client machine via ssh to the exporter machine _without_ a password prompt. This means that public key authentication should be configured on all involved machines for your user beforehand.
 
