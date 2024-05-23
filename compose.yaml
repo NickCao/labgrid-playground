@@ -24,6 +24,9 @@ services:
       LG_CROSSBAR: ws://crossbar:8080/ws
     volumes:
       - ./exporter:/exporter
+    privileged: true
+    devices:
+      - /dev/ttyUSB0
     depends_on:
       crossbar:
         condition: service_healthy
