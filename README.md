@@ -10,4 +10,7 @@
 "First come, first served" reservation of resources with a mandatory expiration.
 
 #### Locking
-While a resource is allocated for a reservation, only the owner of the reservation can lock that place. Other resources can be locked by anyone.
+While a resource is allocated for a reservation, only the owner of the reservation can lock that place. Other resources can be locked by anyone. Resources wouldn't be automatically freed when clients leave, but others can kick them out.
+
+### Authentication
+No authentication is supported at this time: https://github.com/labgrid-project/labgrid/blob/9e0562e1c8d6842c850c239d64896b88c3bf3bd1/labgrid/remote/coordinator.py#L139
